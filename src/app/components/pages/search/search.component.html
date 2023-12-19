@@ -1,0 +1,18 @@
+ <div class="container flex justify-center items-center mt-4">
+        <div class="relative"> 
+            <div class="absolute top-4 left-3">
+                
+                 <svg class="w-4 h-6 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+            </svg>
+            </div>
+          <input type="text" #s class="h-14 w-96 pl-10 pr-20  rounded-lg z-0 focus:shadow focus:outline-none" 
+         (keyup.enter)="search(s.value)" [value]="searchTerm"
+          placeholder="Search anything...">
+            <div class="absolute top-2 right-2">
+                
+                <button (click)="search(s.value)" class="h-10 w-20 text-white rounded-lg bg-red-500 hover:bg-red-600">Search</button>
+                
+            </div>
+        </div>
+    </div>

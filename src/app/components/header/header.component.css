@@ -1,0 +1,24 @@
+.active{
+    background-color: rgb(229 231 235);
+    border:none
+  }
+  :host {
+    height: 100%;
+    /* display: flex;
+    flex-direction: column; */
+  }
+  .details-panel {
+    width: 50% !important;
+   ;
+}
+/* @media (min-width:961px)  {  .details-panel {
+  width: 50% !important;
+ ;} }
+@media (min-width:1025px) {  .details-panel {
+  width: 50% !important;
+ ;} }
+@media (min-width:1281px){
+  .details-panel {
+    width: 50% !important;
+   ;}
+} */

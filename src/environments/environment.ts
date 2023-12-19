@@ -1,9 +1,10 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: 'https://quickorder-backend.vercel.app/products',
+  searchUrl:'https://quickorder-backend.vercel.app/products/search/searchTerm?searchTerm='
 };
 
 /*

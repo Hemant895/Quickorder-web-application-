@@ -1,0 +1,259 @@
+<div class="flex flex-wrap place-items-center  bg-white">
+    <section class="relative mx-auto ">
+        <!-- navbar -->
+      <nav class="flex justify-between bg-white text-black w-screen ">
+        <div class="px-5 xl:px-12 py-6 flex w-full items-center">
+          <a class="text-3xl font-bold font-heading" href="#">
+            <!-- <img class="h-9" src="logo.png" alt="logo"> -->
+           <span class="text-orange-300">Quick</span><span>order</span>
+          </a>
+          <!-- Nav Links -->
+          <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12" >
+      
+            </ul>
+          <!-- Header Icons -->
+          <div class="hidden xl:flex  space-x-5 items-center" >
+            <button class=" btn btn-outline-none hover:bg-gray-200 " routerLink="/home" [routerLinkActive]="['active']">Home</button>
+            <button class=" btn btn-outline-none hover:bg-gray-200 " routerLink="orders" *ngIf="token" [routerLinkActive]="['active']">orders</button>
+            <button class="flex items-center btn btn-outline-none hover:bg-gray-200 " href="#" routerLink="/cart-page" [routerLinkActive]="['active']">  
+                    <span class="flex absolute -mt-5 -ml-3">
+                    
+                    <div class="relative ">
+                      <div class="t-0 absolute left-2">
+                        <p class="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">{{cartQuantity}}</p>
+                      </div>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="file: mt-4 h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                      </svg>
+                    </div>
+                </span>
+            </button>
+           
+            <!-- Sign In / Register      -->
+            <button class="btn btn-outline-none hover:bg-gray-200 " *ngIf="!token" [routerLinkActive]="['active']" routerLink="login">
+              Login
+            </button>
+            <button class="btn btn-outline-none hover:bg-gray-200 " *ngIf="!token" [routerLinkActive]="['active']" routerLink="signup">
+              Sign Up
+            </button>
+         
+            <!-- <a class="flex items-center hover:text-gray-200" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </a> -->
+            <div >
+              <button  type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                <span class="sr-only">Open user menu</span>
+                <svg *ngIf="token" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>            </button>
+              <!-- Dropdown menu -->
+            <div  class="z-50 hidden my-4 text-base list-none  divide-y divide-gray-100 rounded-lg text-black shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+              <div class="px-4 py-3">
+                <span class="block text-sm text-gray-900 dark:text-white">{{username}}</span>
+                <span class="block text-sm  text-gray-500 truncate dark:text-gray-400"></span>
+              </div>
+              <ul class="py-2" aria-labelledby="user-menu-button">
+                <li>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" (click)="signOut()">Sign out</a>
+                </li>
+              </ul>
+            </div>
+            </div>
+           
+            
+          </div>
+        </div>
+       
+     
+        <!-- Responsive navbar -->
+        <a class="xl:hidden flex mr-6 items-center" href="#">
+          <a class="flex items-center hover:text-gray-200" href="#" routerLink="/cart-page">  
+            <span class="flex absolute -mt-5 -ml-3">
+            
+            <div class="relative ">
+              <div class="t-0 absolute left-2">
+                <p class="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">{{cartQuantity}}</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="file: mt-4 h-6 w-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+              </svg>
+            </div>
+        </span>
+    </a>
+        </a>
+        <a class="navbar-burger self-center mr-12 xl:hidden" (click)="openNoAnimation(content)">
+          <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+            <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+          </svg>
+        </a>
+        <ng-template #content let-offcanvas>
+          <div class="offcanvas-header bg-white">
+            <a class="text-xl font-bold outline-none font-heading" href="#">
+              <!-- <img class="h-9" src="logo.png" alt="logo"> -->
+             <span class="text-orange-300">Quick</span><span>order</span>
+            </a>
+            <a type="button" class="btn-close text-black" aria-label="Close" (click)="offcanvas.dismiss('Cross click')">
+              <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </a>
+          </div>
+          <div class="offcanvas-body">
+            <!-- component -->
+<div class=" bg-gray-100 ">
+  <div class=" bg-white rounded border-cyan-800">
+      <div class="flex items-center text-gray-800 mb-9 mr-10" *ngIf="token">
+          <div >
+              <h4 class="font-semibold text-lg text-gray-700 capitalize font-poppins tracking-wide">{{username}}</h4>
+              <span class="text-sm tracking-wide flex items-center space-x-1">
+                  <svg class="h-4 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                  <span class="text-orange-900 text-start" >{{email}}</span>
+              </span>
+          </div>
+      </div>
+      <ul class="space-y-2 text-sm">
+          <li>
+              <a routerLink="/home" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200">
+                  <span class="text-gray-600">
+                      <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                  </span>
+                  <button class=" btn btn-outline-none hover:bg-gray-200 "  [routerLinkActive]="['active']">Home</button>
+              </a>
+          </li>
+         
+          <li>
+              <a *ngIf="token" routerLink="orders" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+                  <span class="text-gray-600">
+                      <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                      </svg>
+                  </span>
+                  <button class=" btn btn-outline-none hover:bg-gray-200 "   >orders</button>
+              </a>
+          </li>
+          <li>
+            <a *ngIf="!token" routerLink="login" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+                <span class="text-gray-600">
+                    <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                </span>
+                <button class="btn btn-outline-none hover:bg-gray-200 "  >
+                  Login
+                </button>
+            </a>
+        </li>
+           <li>
+            <a *ngIf="!token"   routerLink="signup" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+                <span class="text-gray-600">
+                    <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                </span>
+                <button class="btn btn-outline-none hover:bg-gray-200 ">
+                 Sign Up
+                </button>
+            </a>
+        </li>
+          <li>
+              <a (click)="signOut()" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+                  <span class="text-gray-600">
+                      <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                      </svg>
+                  </span>
+                  <button class="btn btn-outline-none hover:bg-gray-200 "  routerLink="signup">
+                   Logout
+                   </button>
+              </a>
+          </li>
+          
+      </ul>
+  </div>
+
+ 
+</div>
+            
+          </div>
+        </ng-template>
+        <!-- <a data-collapse-toggle="navbar-default1" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+        </a> -->
+      </nav>
+      
+    </section>
+  </div>
+  
+  <!-- <div class="flex flex-wrap place-items-center">
+    <section class="relative mx-auto">
+<nav class="bg-white border-gray-200 dark:bg-gray-900 text-white w-screen">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4  ">
+            <a class="text-3xl font-bold font-heading" href="#">
+              <img class="h-9" src="logo.png" alt="logo">
+             <span class="text-orange-300">Quick</span><span>order</span>
+            </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</section>
+</div> -->
+
+  <!-- Does this resource worth a follow? 
+  <div class="absolute bottom-0 right-0 mb-4 mr-4 z-10">
+      <div>
+          <a title="Follow me on twitter" href="https://www.twitter.com/asad_codes" target="_blank" class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
+              <img class="object-cover object-center w-full h-full rounded-full" src="https://www.imore.com/sites/imore.com/files/styles/large/public/field/image/2019/12/twitter-logo.jpg"/>
+          </a>
+      </div>
+  </div>-->
+
+  <!-- component -->
+
+ 
+  
+
